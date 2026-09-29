@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f2a1c" />
+  <title>Will you go on a date with me?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Pinyon+Script&family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Reusable green rose drawn in SVG (no image downloads needed) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <radialGradient id="pet" cx="50%" cy="40%" r="65%">
+        <stop offset="0" stop-color="#d9f0cf" /><stop offset=".55" stop-color="#7fbf7a" /><stop offset="1" stop-color="#1f5a36" />
+      </radialGradient>
+      <symbol id="rose" viewBox="0 0 200 200">
+        <g fill="url(#pet)" stroke="#123d27" stroke-opacity=".5" stroke-width="1.5">
+          <circle cx="100" cy="100" r="92" />
+          <circle cx="100" cy="100" r="72" transform="rotate(20 100 100)" />
+          <circle cx="98" cy="104" r="54" />
+          <circle cx="104" cy="96" r="38" />
+        </g>
+        <g fill="none" stroke="#f1fbe9" stroke-opacity=".7" stroke-width="3" stroke-linecap="round">
+          <path d="M100 100c10-14 28-6 24 10s-30 22-44 4-2-44 26-46 52 24 44 54" />
+          <path d="M60 60c22-22 66-14 78 16" />
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Blurred background roses, layered for depth -->
+  <div class="bg" aria-hidden="true">
+    <svg class="r r1"><use href="#rose" /></svg>
+    <svg class="r r2"><use href="#rose" /></svg>
+    <svg class="r r3"><use href="#rose" /></svg>
+    <svg class="r r4"><use href="#rose" /></svg>
+  </div>
+  <!-- Canvas for floating petals and celebration bursts -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <main>
+    <!-- PAGE 1: the question -->
+    <section id="invite" class="card" aria-labelledby="q">
+      <p class="script">for you</p>
+      <h1 id="q">Will you go on a date with me?</h1>
+      <p class="date"><time datetime="2026-10-03">October 3, 2026</time></p>
+
+      <!-- The NO button dodges inside this area only -->
+      <div id="arena" class="arena">
+        <button id="yes" class="btn yes" type="button">YES ❤️</button>
+        <button id="no" class="btn no" type="button">NO</button>
+      </div>
+      <p id="hint" class="hint" aria-live="polite">&nbsp;</p>
+      <button id="no-link" class="linkish" type="button">No, thank you</button>
+    </section>
+
+    <!-- PAGE 2: YES -->
+    <section id="confirmed" class="card" aria-labelledby="ok" hidden>
+      <svg class="bloom" viewBox="0 0 200 200" aria-hidden="true"><use href="#rose" /></svg>
+      <h2 id="ok">Yeyyy! I knew you'd agree! ❤️</h2>
+      <p class="msg">I love youu so much.<br />See you on Saturday! 🥰</p>
+      <p class="msg pick">I'll go by your house at 9:00 AM.</p>
+      <button id="wait" class="btn yes" type="button">Can't Wait ❤️</button>
+    </section>
+
+    <!-- If NO is chosen -->
+    <section id="declined" class="card" hidden aria-labelledby="dn">
+      <h2 id="dn">That's okay 💚</h2>
+      <p class="msg">Thank you for being honest with me.</p>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
